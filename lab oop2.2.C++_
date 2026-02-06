@@ -1,0 +1,42 @@
+class Pyramid : public Square {
+private:
+    double height;
+
+public:
+    Pyramid(double s, double h) : Square(s) {
+        height = h;
+    }
+
+    double volume() const {
+        return area() * height / 3;
+    }
+
+    void show() const {
+        cout << \"Сторона: \" << side
+             << \", Высота: \" << height
+             << \", Объем: \" << volume() << endl;
+    }
+};
+
+int main() {
+    Pyramid p1(4, 6);
+    Pyramid p2(6, 8);
+
+    cout << \"Пирамида 1:\\n\";
+    p1.show();
+
+    cout << \"Пирамида 2:\\n\";
+    p2.show();
+
+    if (p1.volume() > p2.volume())
+        cout << \"Первая пирамида больше\\n\";
+    else
+        cout << \"Вторая пирамида больше\\n\";
+
+    if (p1.volume() < p2.volume())
+        cout << \"Меньшая пирамида помещается в большую\\n\";
+    else
+        cout << \"Не помещается\\n\";
+
+    return 0;
+}
